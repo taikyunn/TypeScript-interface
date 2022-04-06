@@ -54,3 +54,21 @@ const user1: Human = {
 
 const developer: Human = new Developer('Quill', 38, 3);
 
+
+type addFunc = (num1: number, num2: number) => number;
+let addFunc: addFunc;
+addFunc = (n1: number, n2: number) => {
+  return n1 + n2;
+}
+
+// interfaceで関数の型を定義する(上記と同じ)
+interface addFunc1 {
+  // メソッド名を書かない
+  // 引数2つをとってnumber型の値をreturnするという記載
+  (num1: number, num2: number): number;
+}
+
+let addFunc1: addFunc1;
+addFunc1 = (n1: number, n2: number) => {
+  return n1 + n2;
+}

@@ -35,3 +35,11 @@ const user1 = {
     }
 };
 const developer = new Developer('Quill', 38, 3);
+let addFunc;
+addFunc = (n1, n2) => {
+    return n1 + n2;
+};
+let addFunc1;
+addFunc1 = (n1, n2) => {
+    return n1 + n2;
+};
