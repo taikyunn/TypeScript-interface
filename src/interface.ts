@@ -17,3 +17,13 @@ const human = {
   }
 }
 
+// implements:実装する。
+// interfaceを実装するために使うのがimplements
+// implementsは複数つけることができる
+class Developer implements Human {
+  static id: number = 0;
+  constructor(public name: string, public age: number) {}
+  greeting(message: string): void {
+    console.log('hello');
+  }
+}
