@@ -41,3 +41,63 @@ const tom: EngineerBloggerInterface = {
 type NumberBoolean = number | boolean;
 type StringNumber = string | number;
 type Mix = NumberBoolean & StringNumber;
+
+// TypeGuard
+// TypeOf
+function toUpperCase(x: string | Number) {
+  // xがstring型だった場合のみtoUpperCaseを実行する
+  if (typeof x === 'string') {
+    return x.toUpperCase();
+  } else {
+    return '';
+  }
+}
+
+// in演算子
+type NomadWorker = Engineer | Blogger;
+
+function describeNomadWorkerProfile(nomadWorker: NomadWorker) {
+  // nameのみアクセスできる
+  console.log(nomadWorker.name);
+
+  // in:nomadWorkerというオブジェクトに'role'が存在しますか？という判定を行う
+  if ('role' in nomadWorker) {
+    console.log(nomadWorker.role);
+  }
+
+  if ('follower' in nomadWorker) {
+    console.log(nomadWorker.follower);
+  }
+}
+
+// instanceof
+class Dog {
+  speak() {
+    console.log('bow-bow')
+  }
+}
+
+class Bird {
+  speak() {
+    console.log('tweet-tweet')
+  }
+
+  fly() {
+    console.log('flutter');
+  }
+}
+
+type Pet = Dog | Bird;
+function havePet(pet: Pet) {
+  pet.speak();
+  // instanceof:Birdクラスから生成されたインスタンスだった場合という判定
+  if (pet instanceof Bird) {
+    pet.fly();
+  }
+}
+// 関数の実行
+havePet(new Bird());
+havePet(new Dog());
+
+// オブジェクトで呼び出すとhelloのみ出力される。
+havePet({ speak() { console.log('hello')}, fly() { console.log('not fly')}})
