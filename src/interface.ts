@@ -4,7 +4,8 @@
 // interfaceはオブジェクトのみに使用できる=よって分かりやすいのが特徴
 interface Human {
   name: string;
-  age: number;
+  // interfaceにもreadonlyがある
+  readonly age: number;
   // interfaceのメソッドの書き方
   greeting(message: string): void;
 }
@@ -32,6 +33,8 @@ class Developer implements Human {
 // ただしclass内で指定したexperienceに関してはuserからアクセスできない。
 // 構造的部分型という
 const user: Human = new Developer('Quill', 38, 3);
+// readonlyなので上書き不可
+// user.age = 28;
 
 // 以下の書き方もできる
 const user1: Human = {
@@ -41,4 +44,6 @@ const user1: Human = {
     console.log(message);
   }
 };
+
+const developer: Human = new Developer('Quill', 38, 3);
 

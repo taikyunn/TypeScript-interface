@@ -24,6 +24,8 @@ Developer.id = 0;
 // ただしclass内で指定したexperienceに関してはuserからアクセスできない。
 // 構造的部分型という
 const user = new Developer('Quill', 38, 3);
+// readonlyなので上書き不可
+// user.age = 28;
 // 以下の書き方もできる
 const user1 = {
     name: 'Quill',
@@ -32,3 +34,4 @@ const user1 = {
         console.log(message);
     }
 };
+const developer = new Developer('Quill', 38, 3);
