@@ -22,8 +22,23 @@ const human = {
 // implementsは複数つけることができる
 class Developer implements Human {
   static id: number = 0;
-  constructor(public name: string, public age: number) {}
+  constructor(public name: string, public age: number, public experience: number) {}
   greeting(message: string): void {
     console.log('hello');
   }
 }
+
+// Humanを型として定義することはできる。
+// ただしclass内で指定したexperienceに関してはuserからアクセスできない。
+// 構造的部分型という
+const user: Human = new Developer('Quill', 38, 3);
+
+// 以下の書き方もできる
+const user1: Human = {
+  name: 'Quill',
+  age: 38,
+  greeting(message: string) {
+    console.log(message);
+  }
+};
+
