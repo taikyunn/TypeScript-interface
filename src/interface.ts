@@ -1,8 +1,15 @@
+// interfaceの継承
+// クラスと違い複数継承できる。
+interface Nameable {
+  name: string;
+}
+
 // interfaceの作成
 // typeエイリアスと同じようなもの。ほとんど同じ
 // interfaceはオブジェクトのみに使用できる。typeエイリアスは全てに使える。
 // interfaceはオブジェクトのみに使用できる=よって分かりやすいのが特徴
-interface Human {
+interface Human extends Nameable {
+  // 上書きすることもできる。
   name: string;
   // interfaceにもreadonlyがある
   readonly age: number;
