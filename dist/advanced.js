@@ -70,3 +70,11 @@ havePet(new Bird());
 havePet(new Dog());
 // オブジェクトで呼び出すとhelloのみ出力される。
 // havePet({ speak() { console.log('hello')}, fly() { console.log('not fly')}})
+// HTMLElementは広い概念になっている。これをさらに厳しくするために型アサーションを使用する。
+const input = document.getElementById('input');
+// 型アサーション:HTMLElementではなくHTMLInputElementですと定義する
+// 方法1
+const input1 = document.getElementById('input');
+input1.value = 'testValue';
+// 方法2:こっちの使い方がベター。理由:JSX(React)では方法①だとタグだと間違えて認識される可能性があるため。
+const input2 = document.getElementById('input');
