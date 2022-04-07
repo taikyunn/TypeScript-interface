@@ -92,3 +92,16 @@ const designer = {
 };
 // designer.で定義されていないものを出力しようとしてもエラーにならない。使い方に注意
 console.log(designer.test);
+function toUpperCase1(x) {
+    // xがstring型だった場合のみtoUpperCaseを実行する
+    if (typeof x === 'string') {
+        return x.toUpperCase();
+    }
+    else {
+        return x;
+    }
+}
+// 下記のようにtoUpperCase1('hello')と書いたらupperHelloは間違いなくstringだと見てわかる
+// しかしホバーしてみるとstring|numberと出てくる。これはtsが型を認識れていない証拠
+// この場合オーバーロードと言って同じ関数を書いて返り値と引数の型を細かく設定することでts側で細かく定義できる。
+const upperHello = toUpperCase1('hello');
