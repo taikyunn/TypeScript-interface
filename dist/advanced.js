@@ -34,11 +34,19 @@ function describeNomadWorkerProfile(nomadWorker) {
 }
 // instanceof
 class Dog {
+    constructor() {
+        // タグ付きユニオン
+        this.kind = 'dog';
+    }
     speak() {
         console.log('bow-bow');
     }
 }
 class Bird {
+    constructor() {
+        // タグ付きユニオン
+        this.kind = 'bird';
+    }
     speak() {
         console.log('tweet-tweet');
     }
@@ -48,6 +56,10 @@ class Bird {
 }
 function havePet(pet) {
     pet.speak();
+    switch (pet.kind) {
+        case 'bird':
+            pet.fly();
+    }
     // instanceof:Birdクラスから生成されたインスタンスだった場合という判定
     if (pet instanceof Bird) {
         pet.fly();
@@ -57,4 +69,4 @@ function havePet(pet) {
 havePet(new Bird());
 havePet(new Dog());
 // オブジェクトで呼び出すとhelloのみ出力される。
-havePet({ speak() { console.log('hello'); }, fly() { console.log('not fly'); } });
+// havePet({ speak() { console.log('hello')}, fly() { console.log('not fly')}})
