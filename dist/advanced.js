@@ -83,3 +83,12 @@ const input2 = document.getElementById('input');
 // input3とinput4は同じものである
 const input3 = document.getElementById('input');
 const input4 = document.getElementById('input');
+const designer = {
+    name: 'tom',
+    age: '23',
+    role: 'front',
+    sex: 'men',
+    1: 'web',
+};
+// designer.で定義されていないものを出力しようとしてもエラーにならない。使い方に注意
+console.log(designer.test);

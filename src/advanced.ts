@@ -126,3 +126,26 @@ const input2 = document.getElementById('input') as HTMLInputElement;
 // input3とinput4は同じものである
 const input3 = document.getElementById('input')!;
 const input4 = document.getElementById('input') as HTMLElement;
+
+// インデックスシグネーチャー
+// 本来型を定義して利用している場合は、定義されていないフィールドを使用することはできない。
+// インデックスシグネチャーを利用すれば、新しくフィールドを追加できる。
+interface Designer {
+  name: string;
+  age: string;
+  // インデックスシグネチャーを与えた場合は必ず他のフィールドの値もstringになる。他は定義できない
+  // []内の型をstringにするとkeyはstringもnumberもok
+  // []内の型をnumberにするとkeyはstringはNG,numberはok
+  [index: string]: string;
+}
+
+const designer: Designer = {
+  name: 'tom',
+  age: '23',
+  role: 'front',
+  sex: 'men',
+  1: 'web',
+}
+
+// designer.で定義されていないものを出力しようとしてもエラーにならない。使い方に注意
+console.log(designer.test);
