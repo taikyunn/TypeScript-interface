@@ -78,3 +78,8 @@ const input1 = document.getElementById('input');
 input1.value = 'testValue';
 // 方法2:こっちの使い方がベター。理由:JSX(React)では方法①だとタグだと間違えて認識される可能性があるため。
 const input2 = document.getElementById('input');
+// non-nullアサーションオペレーター
+// nullではないということを言い切る方法
+// input3とinput4は同じものである
+const input3 = document.getElementById('input');
+const input4 = document.getElementById('input');
