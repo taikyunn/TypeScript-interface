@@ -1,5 +1,5 @@
 "use strict";
-var _a, _b, _c;
+var _a, _b, _c, _d;
 const quill = {
     name: 'quill',
     role: 'font-end',
@@ -113,3 +113,6 @@ const downloadedData = {
 // ?で表現している。
 console.log((_a = downloadedData.user) === null || _a === void 0 ? void 0 : _a.name);
 console.log((_c = (_b = downloadedData.user) === null || _b === void 0 ? void 0 : _b.name) === null || _c === void 0 ? void 0 : _c.first);
+// Nullish Coalescing ??
+// undefinedだった場合の初期値を返す方法
+const userData = (_d = downloadedData.user) !== null && _d !== void 0 ? _d : 'no-user';

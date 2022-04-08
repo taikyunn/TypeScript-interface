@@ -185,3 +185,7 @@ const downloadedData: DownloadedData = {
 // ?で表現している。
 console.log(downloadedData.user?.name);
 console.log(downloadedData.user?.name?.first);
+
+// Nullish Coalescing ??
+// undefinedだった場合の初期値を返す方法
+const userData = downloadedData.user ?? 'no-user';
