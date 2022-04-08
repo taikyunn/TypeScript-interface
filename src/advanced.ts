@@ -189,3 +189,10 @@ console.log(downloadedData.user?.name?.first);
 // Nullish Coalescing ??
 // undefinedだった場合の初期値を返す方法
 const userData = downloadedData.user ?? 'no-user';
+
+// LookUp型:オブジェクトが持ってるメンバーのフィールドの型にアクセスしたい時に使用する
+// []を使うことでアクセスできる。
+type id = DownloadedData['id'];
+type user = DownloadedData['user'];
+// union型も使用できる
+type idUser = DownloadedData["id" | "user"];
