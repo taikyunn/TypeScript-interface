@@ -190,9 +190,44 @@ console.log(downloadedData.user?.name?.first);
 // undefinedだった場合の初期値を返す方法
 const userData = downloadedData.user ?? 'no-user';
 
-// LookUp型:オブジェクトが持ってるメンバーのフィールドの型にアクセスしたい時に使用する
+// 　:オブジェクトが持ってるメンバーのフィールドの型にアクセスしたい時に使用する
 // []を使うことでアクセスできる。
 type id = DownloadedData['id'];
 type user = DownloadedData['user'];
 // union型も使用できる
 type idUser = DownloadedData["id" | "user"];
+
+// 型の互換性
+let target: string = 'hello';
+let source: 'hello' = 'hello';
+target = source
+
+// enum型とnumber型は互換性がある。
+// つまりenum型の値にnumber型を入れることができる。
+enum Color {
+  RED,
+  BLUE,
+}
+let target1 = Color.RED;
+let source1 = 0;
+target1 = source1;
+
+// 以下の場合,source2の方の引数を2つにするとエラーになる
+let target2 = function(a: string, b: string){};
+let source2 = function(a: string){};
+target2 = source2;
+
+class AdvancedPerson {
+  name: string = 'Peter';
+  private age: number = 5;
+}
+class AdvancedCar {
+  name: string = 'Prius';
+  private age: number = 5;
+}
+
+let target3 = new AdvancedPerson();
+let source3 = new AdvancedCar();
+// 左側の値の数が大きくなってしまうとエラーになる。
+// またprivateがあるとエラーになる
+// target3 = source3;

@@ -116,3 +116,38 @@ console.log((_c = (_b = downloadedData.user) === null || _b === void 0 ? void 0 
 // Nullish Coalescing ??
 // undefinedだった場合の初期値を返す方法
 const userData = (_d = downloadedData.user) !== null && _d !== void 0 ? _d : 'no-user';
+// 型の互換性
+let target = 'hello';
+let source = 'hello';
+target = source;
+// enum型とnumber型は互換性がある。
+// つまりenum型の値にnumber型を入れることができる。
+var Color;
+(function (Color) {
+    Color[Color["RED"] = 0] = "RED";
+    Color[Color["BLUE"] = 1] = "BLUE";
+})(Color || (Color = {}));
+let target1 = Color.RED;
+let source1 = 0;
+target1 = source1;
+// 以下の場合,source2の方の引数を2つにするとエラーになる
+let target2 = function (a, b) { };
+let source2 = function (a) { };
+target2 = source2;
+class AdvancedPerson {
+    constructor() {
+        this.name = 'Peter';
+        this.age = 5;
+    }
+}
+class AdvancedCar {
+    constructor() {
+        this.name = 'Prius';
+        this.age = 5;
+    }
+}
+let target3 = new AdvancedPerson();
+let source3 = new AdvancedCar();
+// 左側の値の数が大きくなってしまうとエラーになる。
+// またprivateがあるとエラーになる
+// target3 = source3;
