@@ -244,3 +244,21 @@ upperHello1(32);
 
 // オーバーロードした関数を使用する場合は全部に対応しておく必要がある。
 const upperHello2: TmpFunc = function(x: number | string){return 0};
+
+// 関数のインターセクション型:関数かつ関数のもの
+interface FuncA {
+  // interface内での関数の書き方
+  (a: number, b: string): number;
+  (a: string, b: number): number;
+}
+
+interface FuncB {
+  (a: string): number;
+}
+
+// intersectionFuncはFuncAとFuncBをオーバーロードしたものになる。
+// つまり全部が適用されている必要がある
+// 下記の書き方の場合FuncAが優先される。(左側に書いたものが優先される)
+let intersectionFunc: FuncA & FuncB;
+// bはあってもなくてもいいので?がないとエラーになる
+intersectionFunc = function(a: number | string, b?: number | string) {return 0};

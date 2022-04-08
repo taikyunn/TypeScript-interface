@@ -153,3 +153,9 @@ upperHello1('hi');
 upperHello1(32);
 // オーバーロードした関数を使用する場合は全部に対応しておく必要がある。
 const upperHello2 = function (x) { return 0; };
+// intersectionFuncはFuncAとFuncBをオーバーロードしたものになる。
+// つまり全部が適用されている必要がある
+// 下記の書き方の場合FuncAが優先される。(左側に書いたものが優先される)
+let intersectionFunc;
+// bはあってもなくてもいいので?がないとエラーになる
+intersectionFunc = function (a, b) { return 0; };
