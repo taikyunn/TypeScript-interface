@@ -165,3 +165,23 @@ function toUpperCase1(x: string | Number) {
 // しかしホバーしてみるとstring|numberと出てくる。これはtsが型を認識れていない証拠
 // この場合オーバーロードと言って同じ関数を書いて返り値と引数の型を細かく設定することでts側で細かく定義できる。
 const upperHello = toUpperCase1('hello');
+
+// optional chaining
+interface DownloadedData {
+  id: number;
+  user?: {
+    name?: {
+      first: string;
+      last: string;
+    }
+  }
+}
+
+const downloadedData: DownloadedData = {
+  id: 1,
+};
+
+// もしdownloadedData.user.nameがあったらその値をなかったらundefinedを返す
+// ?で表現している。
+console.log(downloadedData.user?.name);
+console.log(downloadedData.user?.name?.first);

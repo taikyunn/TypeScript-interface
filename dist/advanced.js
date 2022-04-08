@@ -1,4 +1,5 @@
 "use strict";
+var _a, _b, _c;
 const quill = {
     name: 'quill',
     role: 'font-end',
@@ -105,3 +106,10 @@ function toUpperCase1(x) {
 // しかしホバーしてみるとstring|numberと出てくる。これはtsが型を認識れていない証拠
 // この場合オーバーロードと言って同じ関数を書いて返り値と引数の型を細かく設定することでts側で細かく定義できる。
 const upperHello = toUpperCase1('hello');
+const downloadedData = {
+    id: 1,
+};
+// もしdownloadedData.user.nameがあったらその値をなかったらundefinedを返す
+// ?で表現している。
+console.log((_a = downloadedData.user) === null || _a === void 0 ? void 0 : _a.name);
+console.log((_c = (_b = downloadedData.user) === null || _b === void 0 ? void 0 : _b.name) === null || _c === void 0 ? void 0 : _c.first);
