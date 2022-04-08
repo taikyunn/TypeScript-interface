@@ -148,6 +148,8 @@ class AdvancedCar {
 }
 let target3 = new AdvancedPerson();
 let source3 = new AdvancedCar();
-// 左側の値の数が大きくなってしまうとエラーになる。
-// またprivateがあるとエラーになる
-// target3 = source3;
+const upperHello1 = toUpperCase;
+upperHello1('hi');
+upperHello1(32);
+// オーバーロードした関数を使用する場合は全部に対応しておく必要がある。
+const upperHello2 = function (x) { return 0; };

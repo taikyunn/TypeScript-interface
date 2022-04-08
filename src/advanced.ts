@@ -151,6 +151,7 @@ const designer: Designer = {
 console.log(designer.test);
 
 // オーバーロード
+// 上から順番に適用されていく
 function toUpperCase1(x: string): string;
 function toUpperCase1(x: number): number;
 function toUpperCase1(x: string | Number) {
@@ -231,3 +232,15 @@ let source3 = new AdvancedCar();
 // 左側の値の数が大きくなってしまうとエラーになる。
 // またprivateがあるとエラーになる
 // target3 = source3;
+
+// オーバーロードされた関数を定数として扱ってみる
+interface TmpFunc {
+  (x: string): number;
+  (x: number): number;
+}
+const upperHello1 = toUpperCase;
+upperHello1('hi');
+upperHello1(32);
+
+// オーバーロードした関数を使用する場合は全部に対応しておく必要がある。
+const upperHello2: TmpFunc = function(x: number | string){return 0};
