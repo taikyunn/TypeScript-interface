@@ -159,3 +159,7 @@ const upperHello2 = function (x) { return 0; };
 let intersectionFunc;
 // bはあってもなくてもいいので?がないとエラーになる
 intersectionFunc = function (a, b) { return 0; };
+let unionFunc;
+// パラメーター：インタセクション型 返り値: ユニオン型
+unionFunc = function (a) { return 'hi'; };
+unionFunc = function (a) { return 34; };

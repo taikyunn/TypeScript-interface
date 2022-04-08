@@ -262,3 +262,17 @@ interface FuncB {
 let intersectionFunc: FuncA & FuncB;
 // bはあってもなくてもいいので?がないとエラーになる
 intersectionFunc = function(a: number | string, b?: number | string) {return 0};
+
+// 関数のunion型
+interface FuncC {
+  (a: number): number;
+}
+
+interface FuncD {
+  (a: string): string;
+}
+
+let unionFunc: FuncC | FuncD;
+// パラメーター：インタセクション型 返り値: ユニオン型
+unionFunc = function (a: string) { return 'hi' };
+unionFunc = function (a: number) { return 34 };
