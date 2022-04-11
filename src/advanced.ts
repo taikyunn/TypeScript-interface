@@ -191,7 +191,7 @@ console.log(downloadedData.user?.name?.first);
 // undefinedだった場合の初期値を返す方法
 const userData = downloadedData.user ?? 'no-user';
 
-// 　:オブジェクトが持ってるメンバーのフィールドの型にアクセスしたい時に使用する
+// オブジェクトが持ってるメンバーのフィールドの型にアクセスしたい時に使用する
 // []を使うことでアクセスできる。
 type id = DownloadedData['id'];
 type user = DownloadedData['user'];
@@ -276,3 +276,18 @@ let unionFunc: FuncC | FuncD;
 // パラメーター：インタセクション型 返り値: ユニオン型
 unionFunc = function (a: string) { return 'hi' };
 unionFunc = function (a: number) { return 34 };
+
+// レストパラメーター
+function advancedFunction(... args: number[]) {}
+
+// タプル型で書くとレストパラメーターの要素数を指定できる
+function advancedFunction1(... args: [number, string, boolean]) {}
+advancedFunction1(0, 'hi', true);
+
+// オプショナルパラメーター(?)を使うことであってもなくてもいいを表現
+function advancedFunction2(... args: [number, string?, boolean?]) {}
+advancedFunction2(1, 'hello');
+
+// タプル+オプショナルパラメーターもできる
+function advancedFunction3(... args: [number, string, boolean, ...number[]]) {}
+advancedFunction3(2, 'hi', true, 2, 2, 3);

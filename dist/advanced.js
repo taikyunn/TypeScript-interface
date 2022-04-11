@@ -163,3 +163,14 @@ let unionFunc;
 // パラメーター：インタセクション型 返り値: ユニオン型
 unionFunc = function (a) { return 'hi'; };
 unionFunc = function (a) { return 34; };
+// レストパラメーター
+function advancedFunction(...args) { }
+// タプル型で書くとレストパラメーターの要素数を指定できる
+function advancedFunction1(...args) { }
+advancedFunction1(0, 'hi', true);
+// オプショナルパラメーター(?)を使うことであってもなくてもいいを表現
+function advancedFunction2(...args) { }
+advancedFunction2(1, 'hello');
+// タプル+オプショナルパラメーターもできる
+function advancedFunction3(...args) { }
+advancedFunction3(2, 'hi', true, 2, 2, 3);
