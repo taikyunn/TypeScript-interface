@@ -298,3 +298,18 @@ function advancedFunction4(... args: readonly [number, string, boolean, ...numbe
 
 // 配列の場合
 function advancedFunction5(... args: readonly number[]) {}
+
+// constアサーション
+// milkリテラル型になる
+let milk = 'milk' as const;
+
+// 配列の場合
+// タプル型になりreadonly修飾子がつく
+let array = [10, 20] as const;
+
+// オブジェクト
+// 定数オブジェクトになる
+const peter = {
+  name: 'Peter',
+  age: 38,
+} as const;

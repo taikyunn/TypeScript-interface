@@ -179,3 +179,15 @@ advancedFunction3(2, 'hi', true, 2, 2, 3);
 function advancedFunction4(...args) { }
 // 配列の場合
 function advancedFunction5(...args) { }
+// constアサーション
+// milkリテラル型になる
+let milk = 'milk';
+// 配列の場合
+// タプル型になりreadonly修飾子がつく
+let array = [10, 20];
+// オブジェクト
+// 定数オブジェクトになる
+const peter = {
+    name: 'Peter',
+    age: 38,
+};
