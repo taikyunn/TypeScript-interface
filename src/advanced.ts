@@ -313,3 +313,7 @@ const peter = {
   name: 'Peter',
   age: 38,
 } as const;
+
+// 型の中でtypeofを使う
+// peterの型を使いたい時はtypeof 値 で型を取得できる
+type PeterType = typeof peter;
