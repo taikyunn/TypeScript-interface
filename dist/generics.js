@@ -15,3 +15,10 @@ function copy1(value) {
     return value;
 }
 console.log(copy1({ name: 'test' }));
+// Uはnameとageのユニオン型
+// Uにはnameとageのみ入りそれ以外はエラーになる
+function copy2(value, key) {
+    value[key];
+    return value;
+}
+console.log(copy2({ name: 'tom', age: 38 }, 'age'));

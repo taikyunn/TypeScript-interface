@@ -18,3 +18,15 @@ function copy1<T extends {name: string}>(value: T): T {
 }
 
 console.log(copy1({name: 'test'}));
+
+// keyof演算子
+// オブジェクトの型のキーを取り出してユニオン型で繋げるメソッド
+type K = keyof {name: {}, age: number};
+
+// Uはnameとageのユニオン型
+// Uにはnameとageのみ入りそれ以外はエラーになる
+function copy2<T extends {name: string}, U extends keyof T>(value: T, key: U): T {
+  value[key]
+  return value;
+}
+console.log(copy2({name: 'tom', age: 38}, 'age'));
