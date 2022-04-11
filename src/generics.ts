@@ -10,3 +10,11 @@ console.log(copy<string>('hello'));
 
 // 以下の書き方でも動く。Tに{name:string}という情報が入るため.nameの補完がされる
 console.log(copy({name: 'tom'}).name);
+
+// 型パラメーターに制約をつける extends
+// 下記は型パラメータが{name: string}型のもののみを許容するという意味
+function copy1<T extends {name: string}>(value: T): T {
+  return value;
+}
+
+console.log(copy1({name: 'test'}));
