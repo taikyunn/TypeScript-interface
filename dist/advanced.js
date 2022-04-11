@@ -174,3 +174,8 @@ advancedFunction2(1, 'hello');
 // タプル+オプショナルパラメーターもできる
 function advancedFunction3(...args) { }
 advancedFunction3(2, 'hi', true, 2, 2, 3);
+// readonlyを配列やタプルにつける
+// タプル:...argsの後にreadonlyをつける
+function advancedFunction4(...args) { }
+// 配列の場合
+function advancedFunction5(...args) { }

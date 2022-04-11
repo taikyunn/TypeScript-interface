@@ -291,3 +291,10 @@ advancedFunction2(1, 'hello');
 // タプル+オプショナルパラメーターもできる
 function advancedFunction3(... args: [number, string, boolean, ...number[]]) {}
 advancedFunction3(2, 'hi', true, 2, 2, 3);
+
+// readonlyを配列やタプルにつける
+// タプル:...argsの後にreadonlyをつける
+function advancedFunction4(... args: readonly [number, string, boolean, ...number[]]) {}
+
+// 配列の場合
+function advancedFunction5(... args: readonly number[]) {}
