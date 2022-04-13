@@ -22,3 +22,24 @@ function copy2(value, key) {
     return value;
 }
 console.log(copy2({ name: 'tom', age: 38 }, 'age'));
+// classに対してジェネリクスを使用する方法
+class LightDatabase {
+    constructor() {
+        this.data = [];
+    }
+    add(item) {
+        this.data.push(item);
+    }
+    remove(item) {
+        this.data.splice(this.data.indexOf(item), 1);
+    }
+    get() {
+        return this.data;
+    }
+}
+const lightDatabase = new LightDatabase();
+lightDatabase.add('apple');
+lightDatabase.add('Banana');
+lightDatabase.add('Grape');
+lightDatabase.remove('Banana');
+console.log(lightDatabase.get());
