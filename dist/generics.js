@@ -43,3 +43,11 @@ lightDatabase.add('Banana');
 lightDatabase.add('Grape');
 lightDatabase.remove('Banana');
 console.log(lightDatabase.get());
+const tmpDatabase = {
+    id: 3,
+    data: [32],
+};
+const tmpDatabase2 = {
+    id: 3,
+    data: ['test'],
+};

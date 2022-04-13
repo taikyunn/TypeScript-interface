@@ -50,3 +50,25 @@ lightDatabase.add('Banana');
 lightDatabase.add('Grape');
 lightDatabase.remove('Banana');
 console.log(lightDatabase.get());
+
+// interfaceに対してジェネリクスを使用する方法
+interface TmpDatabase<T> {
+  id: number;
+  data: T[];
+}
+
+const tmpDatabase: TmpDatabase<number> = {
+  id: 3,
+  data:[32],
+};
+
+// typeに対してジェネリクスを使用する方法
+type TmpDatabase2<T>  = {
+  id: number;
+  data: T[];
+}
+
+const tmpDatabase2: TmpDatabase<string> = {
+  id: 3,
+  data:['test'],
+};
