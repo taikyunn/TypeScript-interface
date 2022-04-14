@@ -122,3 +122,14 @@ interface Vegetables {
 type MappedVegetables = {
   -readonly [P in keyof Vegetables]-?: string
 }
+
+// ConditionalTypesの使い方。三項演算子のようなもの
+// 下記は'tomato'型がstringに入るならnumber,入らないならbooleanになるという意味
+type ConditionalTypes = 'tomato' extends string ? number: boolean
+
+// infer R と書くことでanyのようなものになる。
+// infer:推論する。ここではRが左側に書いてある型を推測する。
+type ConditionalTypesInfer = {tomato: 'tomato'} extends {tomato: infer R} ? R : boolean;
+
+// 左側がunion型の場合
+type DistributiveConditionalTypes = ('tomato' | 'pumpkin') extends 'tomato' ? number : boolean
