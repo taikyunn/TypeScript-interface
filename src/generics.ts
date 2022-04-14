@@ -105,3 +105,20 @@ interface ResponseData<T extends {message: string} = any> {
 }
 
 let tmp: ResponseData;
+
+// 型のfor文
+type MappedTypes = {
+  [P in 'tomato' | 'pumpkin']: P
+}
+
+interface Vegetables {
+  tomato: string;
+  pumpkin: string;
+}
+
+// readonly,?がつけられる
+// -をつけるとreadonlyが消される
+// ?に-をつけると?が消される。
+type MappedVegetables = {
+  -readonly [P in keyof Vegetables]-?: string
+}
