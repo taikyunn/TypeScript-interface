@@ -133,3 +133,4 @@ type ConditionalTypesInfer = {tomato: 'tomato'} extends {tomato: infer R} ? R : 
 
 // 左側がunion型の場合
 type DistributiveConditionalTypes = ('tomato' | 'pumpkin') extends 'tomato' ? number : boolean
+
