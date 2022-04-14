@@ -96,3 +96,12 @@ fetchData.then(data => {
 })
 
 const vegetables: Array<string> = ['Tomato', 'Broccoli', 'Asparagus'];
+
+// defaultの型パラメータの設定
+// =anyで作成できる
+interface ResponseData<T extends {message: string} = any> {
+  data: T,
+  status: number,
+}
+
+let tmp: ResponseData;
