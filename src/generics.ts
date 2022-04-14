@@ -72,3 +72,27 @@ const tmpDatabase2: TmpDatabase<string> = {
   id: 3,
   data:['test'],
 };
+
+interface Todo {
+  title: string;
+  text: string;
+}
+
+// Partial:importしなくても使えるtsの型utilityライブラリ
+// 全てオプショナルパラメータになる
+type Todoable = Partial<Todo>
+
+// Readonly:全てがreadonlyになる
+type ReadTodo = Readonly<Todo>
+
+const fetchData: Promise<string> = new Promise(resolve => {
+  setTimeout(() => {
+    resolve('hello');
+  }, 3000);
+});
+
+fetchData.then(data => {
+  data.toUpperCase();
+})
+
+const vegetables: Array<string> = ['Tomato', 'Broccoli', 'Asparagus'];

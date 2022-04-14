@@ -51,3 +51,12 @@ const tmpDatabase2 = {
     id: 3,
     data: ['test'],
 };
+const fetchData = new Promise(resolve => {
+    setTimeout(() => {
+        resolve('hello');
+    }, 3000);
+});
+fetchData.then(data => {
+    data.toUpperCase();
+});
+const vegetables = ['Tomato', 'Broccoli', 'Asparagus'];
