@@ -26,6 +26,7 @@ function Component(template, selector) {
 }
 // デコレーター
 // デコレーターはインスタンス生成時ではなくクラス生成時に作成される
+// 複数指定することが可能。上から下に実行される
 let User = class User {
     constructor() {
         this.name = 'Tom';
@@ -49,6 +50,7 @@ function Logging1(message) {
     };
 }
 // 引数を書く形でデコレーターを設定する
+// 複数指定することが可能。下から上の順番で実行されるので注意
 let User1 = class User1 {
     constructor() {
         this.name = 'James';

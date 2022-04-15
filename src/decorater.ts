@@ -20,6 +20,7 @@ function Component(template: string, selector: string) {
 
 // デコレーター
 // デコレーターはインスタンス生成時ではなくクラス生成時に作成される
+// 複数指定することが可能。上から下に実行される
 @Logging
 @Component('<h1>{{name}}</h1>', '#app')
 class User {
@@ -44,6 +45,7 @@ function Logging1(message: string) {
 }
 
 // 引数を書く形でデコレーターを設定する
+// 複数指定することが可能。下から上の順番で実行されるので注意
 @Logging1('test user')
 class User1 {
   name = 'James';
