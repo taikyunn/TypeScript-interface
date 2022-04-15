@@ -24,3 +24,23 @@ User = __decorate([
 const user4 = new User();
 const user2 = new User();
 const user3 = new User();
+// デコレーターファクトリー
+// デコレータを返す関数とする。
+function Logging1(message) {
+    return function Logging1(constructor) {
+        console.log(message);
+        console.log('logging...');
+        console.log(constructor);
+    };
+}
+// 引数を書く形でデコレーターを設定する
+let User1 = class User1 {
+    constructor() {
+        this.name = 'James';
+        console.log('user was created');
+    }
+};
+User1 = __decorate([
+    Logging1('test user')
+], User1);
+const user5 = new User1();
