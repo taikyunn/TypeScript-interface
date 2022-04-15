@@ -10,6 +10,20 @@ function Logging(constructor) {
     console.log('logging...');
     console.log(constructor);
 }
+function Component(template, selector) {
+    // instanceの中身をnew()の後にかく
+    return function (constructor) {
+        // HTML要素をセレクタ指定するメソッド
+        const mountedElement = document.querySelector(selector);
+        const instance = new constructor();
+        if (mountedElement) {
+            // 指定した要素の中身を書き換える
+            mountedElement.innerHTML = template;
+            // 指定したテキストの中身を書き換える
+            mountedElement.querySelector('h1').textContent = instance.name;
+        }
+    };
+}
 // デコレーター
 // デコレーターはインスタンス生成時ではなくクラス生成時に作成される
 let User = class User {
@@ -19,7 +33,8 @@ let User = class User {
     }
 };
 User = __decorate([
-    Logging
+    Logging,
+    Component('<h1>{{name}}</h1>', '#app')
 ], User);
 const user4 = new User();
 const user2 = new User();
